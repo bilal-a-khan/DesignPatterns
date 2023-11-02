@@ -11,9 +11,11 @@ public class Main {
         cart.addItem(item2);
 
         //pay by paypal
-        cart.pay(new PaypalStrategy("notmypayapl@notmyemail.com", "mypwd"));
+        cart.setPaymentStrategy(new PaypalStrategy("notmypayapl@notmyemail.com", "mypwd"));
+        cart.pay();
 
         //pay by credit card
-        cart.pay(new CreditCardStrategy("Bryaaaaan", "4741111111111111", "786", "12/24"));
+        cart.setPaymentStrategy(new CreditCardStrategy("Bryaaaaan", "4741111111111111", "786", "12/24"));
+        cart.pay();
     }
 }

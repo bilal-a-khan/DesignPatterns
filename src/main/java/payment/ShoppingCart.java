@@ -28,8 +28,14 @@ public class ShoppingCart {
         return sum;
     }
 
-    public void pay(PaymentStrategy paymentMethod){
+    public void pay(){
         double amount = calculateTotal();
-        paymentMethod.pay(amount);
+        paymentStrategy.pay(amount);
+    }
+
+    private PaymentStrategy paymentStrategy;
+
+    public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
     }
 }
