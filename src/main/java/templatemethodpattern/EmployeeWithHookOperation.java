@@ -2,7 +2,7 @@ package templatemethodpattern;
 
 import java.time.LocalDate;
 
-public  abstract class EmployeeWirhHookOperation {
+public  abstract class EmployeeWithHookOperation {
     String name;
     Address address;
     LocalDate birthday;
