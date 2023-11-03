@@ -49,24 +49,8 @@ public  abstract class Employee {
     }
 
     protected double calculateStateTaxes(double periodPay) {
-        double stateTaxes = 0;
-        switch (address.getState()) {
-            case "AL" -> {
-                stateTaxes = .02* periodPay;
-            }
-
-            case "CA" -> {
-                stateTaxes = .10* periodPay;
-            }
-
-            case "FL" -> {
-                stateTaxes = .03* periodPay;
-            }
-            default -> {
-                stateTaxes = .05* periodPay;
-            }
-        }
-        return stateTaxes;
+        StateTaxesStrategy stateTaxesStrategy = StateTaxesStrategyFactory.getStateTaxesStrategy(address);
+        return stateTaxesStrategy.calculateStateTaxes(periodPay);
     }
 
     protected double calculateFederalTaxes(double annualPay, int payFrequency) {
